@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
 <link rel="stylesheet" type="text/css" href="/css/common.css">
 
-<title>Title - mysite😄</title>
+<title>Title - Perl Newbie</title>
 <meta name="description" content="#!/usr/bin/env perl">
   </head>
   <body>
@@ -14,7 +14,7 @@
       <div class="header">
         <!-- header -->
 <h1>
-  <a href="/">Giblog Web Site</a>
+  <a href="/">Perl Newbie</a>
 </h1>
 
       </div>
@@ -122,7 +122,7 @@
       </div>
       <div class="footer">
         <!-- footer -->
-<a href="https://github.com/yuki-kimoto/giblog">Giblog</a>
+<a href="https://tutorial.perlzemi.com">Perl Seminar</a> & <a href="https://jp.giblog.net/">Giblog</a>
 
       </div>
     </div>
