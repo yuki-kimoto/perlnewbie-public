@@ -289,7 +289,7 @@
     font-family: "times new roman", "geogia", serif;
 
     float:left;
-    width:26%;
+    width:33%;
     display:inline-block;
     padding:10px;
   }
@@ -301,6 +301,7 @@
     letter-spacing:2px;
     font-size:28px;
     text-decoration:none;
+    width:100%;
   }
   
   h1 img {
@@ -311,7 +312,7 @@
 
   h2 {
     padding:12px 5px 5px 35px;
-    font-size:21px;
+    font-size:24px;
     margin:0;
     margin-top:0px;
     margin-bottom:15px;
