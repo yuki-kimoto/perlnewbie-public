@@ -27,8 +27,8 @@
   });
 </script>
 
-<title>Entries - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
-<meta name="description" content="Entries of Perl Newbies - Perl is good at Text processing, Linux server admin, Web development">
+<title>rindex function - Search for a substring from the end of a string - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="rindex function searches for a substring from the end of a string.">
   </head>
   <body>
     <div class="container">
@@ -47,42 +47,42 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/list.html">Entries</a></h2>
-<ul>
-  <li style="list-style:none;">
-    <b>2016</b>
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
   </li>
-  <li style="list-style:none">
-    10/4 <a href="/blog/20161004147558.html">Functions</a>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20161004147558.html">
+      <span itemprop="name">Functions</span></a>
+    <meta itemprop="position" content="2" />
   </li>
-  <li style="list-style:none;">
-    <b>2010</b>
+  &#8250;
+  <li>
+    here
   </li>
-  <li style="list-style:none">
-    3/27 <a href="/blog/20100327127089.html">lcfirst function - Convert uppercase first character of string to lowercase</a>
-  </li>
-  <li style="list-style:none">
-    3/26 <a href="/blog/20100326127089.html">lc function - Convert uppercase string to lowercase string</a>
-  </li>
-  <li style="list-style:none">
-    3/25 <a href="/blog/20100325127089.html">ucfirst function - Convert lowercase first character of string to uppercase</a>
-  </li>
-  <li style="list-style:none">
-    3/21 <a href="/blog/20100321126967.html">rindex function - Search for a substring from the end of a string</a>
-  </li>
-  <li style="list-style:none;">
-    <b>2008</b>
-  </li>
-  <li style="list-style:none">
-    9/3 <a href="/blog/20080903122057.html">uc function - Convert lowercase string to uppercase string</a>
-  </li>
-  <li style="list-style:none">
-    2/25 <a href="/blog/20080225120395.html">index function - Search for string</a>
-  </li>
-  <li style="list-style:none">
-    2/24 <a href="/blog/20080224120386.html">substr function - Extraction and replacement of substring</a>
-  </li>
-</ul>
+</ol>
+<h2><a href="/blog/20100321126967.html">rindex function - Search for a substring from the end of a string</a></h2>
+<p>
+  <strong>rindex function</strong> searches for a substring from the end of a string.
+</p>
+<pre>
+my $pos = rindex($target, $search);
+</pre>
+<p>
+  rindex function searches for a substring from the end of a string, while <a href="/blog/20080225120395.html">index function</a> searches for a substring from the beginning of a string. First argument is a string to be searched. Second argument is a substring to be searched for. Third argument is starting position for searching. If omitted, rindex function searches a substring from the end of a string. If a substring is found, the position is returned. If not found, -1 is returned.
+</p>
+<h3>rindex function programming example</h3>
+<p>
+  rindex function programming example
+</p>
+<pre>
+# Search for a substring from the end of a string
+my $message = "love love love.";
+my $word_love_pos_last = rindex($message, 'love');
+</pre>
 
   </div>
   <div class="bottom">
