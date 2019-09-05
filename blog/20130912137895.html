@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script>
+<link  type="text/css" rel="stylesheet" href="/js/google-code-prettify/prettify.css"/>
+<script>
+  $(function(){
+    // google code prettifyの有効化
+    $("pre").addClass("prettyprint");
+    function init(event){
+      prettyPrint();
+    }
+    if(window.addEventListener)window.addEventListener("load",init,false);
+    else if(window.attachEvent)window.attachEvent("onload",init);
+    
+    $(".to-top").click(function() {
+      // ページの一番上までスクロールさせます。
+      $('body, html').animate({scrollTop: 0}, 300, 'linear');;
+    });
+  });
+</script>
+
+<title>strict - strictify grammar check - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="strict module strictify Perl grammar checking.">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/logo.png"><span style="font-size:105%">Perl Newbies</span></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20091116124667.html">
+      <span itemprop="name">Modules</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li>
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20130912137895.html">strict - strictify grammar check</a></h2>
+<p>
+  <b>strict module</b> strictify Perl grammar checking.
+</p>
+<pre>
+use strict;
+</pre>
+<p>
+  strict module strictify Perl syntax checking. Make sure to write strict module when you write Perl program in current days. If an undeclared variable is used and you run the script, program stops with compile error messages.
+</p>
+<h3>Description of strict module</h3>
+<p>
+  Let's see the effects of strict module. strict module has a certain effect.
+</p>
+<h4>Force variable declaration</h4>
+<p>
+  The first effect is <strong>forcing variable declaration</strong>. In Perl, variables declared using my are called lexical variables. If you use strict module, you force variable declaration using my.
+</p>
+<pre>
+use strict;
+
+# No error occurs because the variable is declared
+my $num;
+$num = 1
+</pre>
+<pre>
+use strict;
+
+# An error occurs because variable is used without declaration using my
+$num2 = 2
+</pre>
+<p>
+  In the second example, the program ends without excecution and the following error message is showed.
+</p>
+<pre>
+Global symbol "$num2" requires explicit package name at a.pl line 4.
+</pre>
+<p>
+  This message means undeclared variable "$num2" is used at a.pl line 4 on effects of strict module.
+</p>
+<h4>Forbid using barewords</h4>
+<p>
+  The second effect of strict module is forbidding using barewords. Bareword means not quoted string. Perl allows you to use barewords if strict module is not enabled. If you enable strict module, using barewords is forbidden.
+</p>
+<pre>
+use strict;
+
+# No error because the string is quoted
+my $str = 'abcde';
+</pre>
+<pre>
+use strict;
+
+# An error occurs because the string is bareword.
+my $str = abcde;
+</pre>
+<p>
+  In the second example, the program ends with the following error message.
+</p>
+<pre>
+Bareword "abcde" not allowed while "strict subs" in use at a.pl line 3.
+</pre>
+<h4>Forbid symbolic references</h4>
+<p>
+  The third effect of strict module is <strong>forbid symbolic references</strong>. Perl has a feature called symbolic references. strict module forbids using symbolic references.
+</p>
+<p>
+  A symbolic reference is a feature that you can access a variable or a function using a string.
+</p>
+<p>
+  Look at the script below.
+</p>
+<pre>
+# Addition function
+sub total {
+  my ($num1, $num2) = @_;
+  
+  return $num1 + $num2;
+}
+
+# Symbolic reference
+my $num = &{'total'}(1 + 2);
+
+print $num;
+</pre>
+<p>
+  This program has total function. Instead of calling “total(1 + 2)”, this program calls total function by using symbolic reference "&{'total'} (1 + 2)".
+</p>
+<p>
+  If strict module is enabled, this programu ends with the following message.
+</p>
+<pre>
+Can't use string ("total") as a subroutine ref while "strict refs" in use at a.pl line 11.
+</pre>
+<p>
+  Sometimes you may need to use symbolic references. For example, when you want to define subroutines dynamically. In such a case, you can allow using symbolic references.
+</p>
+<pre>
+use strict;
+
+# Allow using symbolic references
+no strict 'refs';
+</pre>
+<p>
+  strict module has three effects: "force variable declaration", "forbid barewords" and "forbid symbolic references".
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <div class="hatena-module">
+  <div class="hatena-moduletitle">
+    Menu
+  </div>
+  <div class="hatena-modulebody">
+    <ul>
+      <li><a href="/list.html">Entries</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com">Perl Seminar</a> & <a href="https://jp.giblog.net/">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
