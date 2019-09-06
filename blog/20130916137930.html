@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script>
+<link  type="text/css" rel="stylesheet" href="/js/google-code-prettify/prettify.css"/>
+<script>
+  $(function(){
+    // google code prettifyの有効化
+    $("pre").addClass("prettyprint");
+    function init(event){
+      prettyPrint();
+    }
+    if(window.addEventListener)window.addEventListener("load",init,false);
+    else if(window.attachEvent)window.attachEvent("onload",init);
+    
+    $(".to-top").click(function() {
+      // ページの一番上までスクロールさせます。
+      $('body, html').animate({scrollTop: 0}, 300, 'linear');;
+    });
+  });
+</script>
+
+<title>warnings module - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="warnings module enables warnings.">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/logo.png"><span style="font-size:105%">Perl Newbies</span></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20091116124667.html">
+      <span itemprop="name">Modules</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li>
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20130916137930.html">warnings module</a></h2>
+<p>
+  <strong>warnings</strong> module enables warnings.
+</p>
+<pre>
+use warnings;
+</pre>
+<p>
+  In Perl, by default, no warning is output to stderr. warnings module enables warnings. warnings is output to stderr if warnings occur. When you write Perl program in current days, be sure to use warnings module with strict module.
+</p>
+<h3>Variouse warnings</h3>
+<p>
+  Here are some warnings you will offten see.
+</p>
+<h4>Using undefined values</h4>
+<p>
+  A warning message is output to stderr if an undefined value is used. In the following program, an undefined value is used in print function.
+</p>
+<pre>
+use warnings;
+
+# Use undefined value
+my $str;
+print $str;
+</pre>
+<p>
+  If you run this program, you will see the following warning.
+</p>
+<pre>
+Use of uninitialized value $str in print at a.pl line 6
+</pre>
+<p>
+  This means that undefined value $str is used in print function.
+</p>
+<p>
+  If you see warnings, fix the program. The program has some mistakes.
+</p>
+<h4>The string is not encoded</h4>
+<p>
+  When you print multibyte string such as Japanese, you may see a warning that the string is not encoded.
+</p>
+<p>
+  The following program outputs a warning to stderr.
+</p>
+<pre>
+use warnings;
+use utf8;
+
+# The string is not encoded
+my $str = 'こんにちは';
+print $str;
+</pre>
+<p>
+  You will see the following warning.
+</p>
+<pre>
+Wide character in print at a.pl line 7.
+</pre>
+<p>
+  This means that print function prints an unencoded string. Let's encode the string properly.
+</p>
+<pre>
+use warnings;
+use utf8;
+use Encode 'encode';
+
+# The string is not encoded
+my $str = 'こんにちは';
+print encode('UTF-8', $str);
+</pre>
+<h4>The subroutine is redefined</h4>
+<p>
+  If you define a subroutine more than once, you will see a warning that the subroutine is redefined.
+</p>
+<p>
+  The following program outputs a warning to stderr.
+</p>
+<pre>
+use warnings;
+
+# Redefine subroutine
+sub one { 1 }
+sub one { 1 }
+</pre>
+<p>
+  You will see the following warning.
+</p>
+<pre>
+Subroutine one redefined at a.pl line 5.
+</pre>
+<p>
+  If you see a redefinition warning, the program maybe has some mistakes, but sometimes you want to replace the before subroutine. In such cases, you can suppress this warning.
+</p>
+<pre>
+no warnings 'redefine';
+</pre>
+<p>
+  You write the above, the redefinition warning is not output to stderr.
+</p>
+<pre>
+use warnings;
+no warnings 'redefine';
+
+# No redefined warning occur
+sub one { 1 }
+sub one { 1 }
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <div class="hatena-module">
+  <div class="hatena-moduletitle">
+    Menu
+  </div>
+  <div class="hatena-modulebody">
+    <ul>
+      <li><a href="/list.html">Entries</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com">Perl Seminar</a> & <a href="https://jp.giblog.net/">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
