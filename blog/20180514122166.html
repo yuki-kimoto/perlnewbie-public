@@ -27,8 +27,8 @@
   });
 </script>
 
-<title>Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
-<meta name="description" content="Perl Newbies is the site for people to leran Perl programing. Perl is good at text processing,Linux server administration, and Web development. You can use Perl on most operation systems. Perl backword compatiblity is very high.">
+<title>sin function - calculate the sine value - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="sin function calculates the sine value. The angle is specified by arc degree method using π (pi function).">
   </head>
   <body>
     <div class="container">
@@ -47,39 +47,58 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/">Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</a></h2>
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20161004147558.html">
+      <span itemprop="name">Functions</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20180514122166.html">sin function - calculate the sine value</a></h2>
 <p>
-  Perl Newbies is the site for people to leran Perl programing. Perl is good at <b>text processing</b>,<b>Linux server administration</b>, and <b>Web development</b>. You can use Perl on most operation systems. Perl backword compatiblity is very high.
+  <strong>sin function</strong> calculates the sine value. The angle is specified by arc degree method using π (pi function).
+</p>
+<pre>
+use Math::Trig 'pi';
+
+sin(pi/2);
+</pre>
+<p>
+  The pi function is defined in <a href="/blog/20080918122175.html">Math::Trig</a> module.
+</p>
+<h3>sin function example programming</h3>
+<p>
+  The following is a sin function example programming.
+</p>
+<pre>
+use strict;
+use warnings;
+use Math::Trig 'pi';
+
+# sin(90°) = 1;
+print "sin(π/2) = " . sin(pi/2) . "\n";
+</pre>
+<h3>Other trigonometric functions</h3>
+<p>
+  Perl also has <a href="/blog/20180513122166.html">cos function</a> in core functions.
 </p>
 <p>
-  Perl Newbie chears people who try to learn Perl and use Perl for your development. Let't talk about Perl. "He uses Perl and has much fun."
+  The following article explains how to use other trigonometric functions such as tangent.
 </p>
-<h3>Functions</h3>
-<p>
-  Perl core functions.
-</p>
-<h4>String functions</h4>
 <ul>
-  <li><a href="/blog/20100326127089.html">lc</a></li>
-  <li><a href="/blog/20100327127089.html">lcfirst</a></li>
-  <li><a href="/blog/20080903122057.html">uc</a>
-  <li><a href="/blog/20100325127089.html">ucfirst</a></li>
-  <li><a href="/blog/20080224120386.html">substr</a></li>
-  <li><a href="/blog/20080225120395.html">index</a></li>
-  <li><a href="/blog/20100321126967.html">rindex</a></li>
-  <li><a href="/blog/20080926122245.html">length</a></li>
-</ul>
-<h4>Mathematical functions</h4>
-<ul>
-  <li><a href="/blog/20180514122166.html">sin</a></li>
-</ul>
-<h3>Modules</h3>
-<p>
-  Perl modules.
-</p>
-<ul>
-  <li><a href="/blog/20130912137895.html">strict</a></li>
-  <li><a href="/blog/20130916137930.html">warnings</a></li>
+  <li>
+    <a href="/blog/20080916122166.html">Trigonometric functions</a>
+  </li>
 </ul>
 
   </div>
