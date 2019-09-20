@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script>
+<link  type="text/css" rel="stylesheet" href="/js/google-code-prettify/prettify.css"/>
+<script>
+  $(function(){
+    // google code prettifyの有効化
+    $("pre").addClass("prettyprint");
+    function init(event){
+      prettyPrint();
+    }
+    if(window.addEventListener)window.addEventListener("load",init,false);
+    else if(window.attachEvent)window.attachEvent("onload",init);
+    
+    $(".to-top").click(function() {
+      // ページの一番上までスクロールさせます。
+      $('body, html').animate({scrollTop: 0}, 300, 'linear');;
+    });
+  });
+</script>
+
+<title>FindBin - Get the path of the directory where the script exists - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="FindBin module gets the path of the directory where the script exists.">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/logo.png"><span style="font-size:105%">Perl Newbies</span></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20091116124667.html">
+      <span itemprop="name">Modules</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li>
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20100524127696.html">FindBin - Get the path of the directory where the script exists</a></h2>
+<p>
+  <strong>FindBin</strong> module gets the path of the directory where the script exists.
+</p>
+<pre>
+use FindBin;
+</pre>
+<p>
+  The path of the directory where the script exists is assigned to <strong>$FindBin::Bin</strong> <a href="/blog/20080308120495.html">package variable</a>.
+</p>
+<pre>
+# Get the path of the directory where the script exists
+my $script_dir = $FindBin::Bin;
+</pre>
+<p>
+  FindBin is a little strange module. but it is a standard way to get the path of the directory where the script exists.
+</p>
+<h4>Set the path to load modules</h4>
+<p>
+  FindBin module is offten used together with <a href="/blog/20100525127859.html">lib</a> module.
+</p>
+<p>
+  You can set the path to load modules to the path of the directory where the script exists.
+</p>
+<pre>
+# Set the path to load modules to "lib" in the directory where the script exists.
+use FindBin;
+use lib "$FindBin::Bin/lib";
+</pre>
+<h4>Script base name</h4>
+<p>
+  You can get the base name of the script using <strong>$FindBin::Script</strong>.
+</p>
+<pre>
+use FindBin;
+$FindBin::Script
+</pre>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <div class="hatena-module">
+  <div class="hatena-moduletitle">
+    Menu
+  </div>
+  <div class="hatena-modulebody">
+    <ul>
+      <li><a href="/list.html">Entries</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com">Perl Seminar</a> & <a href="https://jp.giblog.net/">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
