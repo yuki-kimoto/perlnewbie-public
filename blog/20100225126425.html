@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+<script type="text/javascript" src="/js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="/js/google-code-prettify/prettify.js"></script>
+<link  type="text/css" rel="stylesheet" href="/js/google-code-prettify/prettify.css"/>
+<script>
+  $(function(){
+    // google code prettifyの有効化
+    $("pre").addClass("prettyprint");
+    function init(event){
+      prettyPrint();
+    }
+    if(window.addEventListener)window.addEventListener("load",init,false);
+    else if(window.attachEvent)window.attachEvent("onload",init);
+    
+    $(".to-top").click(function() {
+      // ページの一番上までスクロールさせます。
+      $('body, html').animate({scrollTop: 0}, 300, 'linear');;
+    });
+  });
+</script>
+
+<title>File::Basename - Get the base name of a file - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="File::Basename is a module to get the base name a file and the directory name of a file. You can use the following three functions.">
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <!-- header -->
+<h1>
+  <a href="/"><img src="/images/logo.png"><span style="font-size:105%">Perl Newbies</span></a>
+</h1>
+
+      </div>
+      <div class="main">
+        <div class="content">
+          <div class="entry">
+  <div class="top">
+    <!-- top -->
+
+  </div>
+  <div class="middle">
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20091116124667.html">
+      <span itemprop="name">Modules</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li>
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20100225126425.html">File::Basename - Get the base name of a file</a></h2>
+<p>
+  <strong>File::Basename</strong> is a module to get the base name a file and the directory name of a file. You can use the following three functions.
+</p>
+<ul>
+  <li>
+    <strong>basename</strong> - Get the base name of a file
+  </li>
+  <li>
+    <strong>dirname</strong> - Get the directory name of a file
+  </li>
+  <li>
+    <strong>fileparse</strong> - A little more complex operations
+  </li>
+</ul>
+<p>
+  It is good to import these functions explicitly.
+</p>
+<pre>
+# Import functions
+use File::Basename 'basename', 'dirname';
+</pre>
+<h3>basename function</h3>
+<p>
+  basename function gets the base name of the file. the base name means the last part of the file name (If a file is "/foo/bar/baz.txt", the base name is "baz.txt").
+</p>
+<pre>
+# Get the base name of a file
+$basename = basename $file;
+</pre>
+<h3>dirname function</h3>
+<p>
+  dirname gets the directory name of a file.
+</p>
+<pre>
+# Get directory name
+$dirname = dirname $file;
+</pre>
+<p>
+  Examples of basename function and dirname function. If a file is "dir/a.txt", you can get "a.txt" as the base name and get "dir" as the directory name.
+</p>
+<pre>
+# Get the base name and the directory name of a file
+use File::Basename qw/basename dirname/;
+my $file = 'dir/a.txt';
+my $basename = basename $file;
+my $dirname = dirname $file;
+</pre>
+<h3>A little more complex operations of a file</h3>
+<p>
+  If you use fileparse function, you can get the base name and directory name of a file at once.
+</p>
+<pre>
+# Get the base name and directory name of a file at once
+($basename, $dirname) = fileparse $file;
+</pre>
+<p>
+  If you pass a extension using<a href="/blog/20100827127859.html">regular expression</a> to the second argument of fileparse, you can get the base name and extension separately.
+</p>
+<pre>
+# Get base name, directory name, extension
+($basename, $dirname, $ext) = fileparse($file, $regex);
+</pre>
+<p>
+  Example of extracting the extension using a regular expression. The regular expression "\..*$" means ". come, zero or more any characters come, end of the string come". If $file is "dir/a.txt", $basename becomes "a" and $ext becomes ".txt".
+</p>
+<pre>
+# Extract the extension
+use File::Basename 'fileparse';
+my $file = 'dir/a.txt';
+my ($basename, $dirname, $ext) = fileparse($file, qr/\..*$/);
+</pre>
+<p>
+  The above example extracts the extension, but if the extension continues twice, the extension after the first extension is extracted. For example, if the file name is "dir/a.txt.gz", $ext becomes ".txt.gz".
+</p>
+<p>
+  If you want to extract ".gz", change the regular expression to "\.[^\.]*$". This regular expression means ". come, zero or more characters except . come, ,end of the string come".
+</p>
+
+  </div>
+  <div class="bottom">
+    <!-- bottom -->
+
+  </div>
+</div>
+
+        </div>
+        <div class="side">
+          <div class="hatena-module">
+  <div class="hatena-moduletitle">
+    Menu
+  </div>
+  <div class="hatena-modulebody">
+    <ul>
+      <li><a href="/list.html">Entries</a></li>
+    </ul>
+  </div>
+</div>
+
+        </div>
+      </div>
+      <div class="footer">
+        <!-- footer -->
+<a href="https://tutorial.perlzemi.com">Perl Seminar</a> & <a href="https://jp.giblog.net/">Giblog</a>
+
+      </div>
+    </div>
+  </body>
+</html>
