@@ -27,8 +27,8 @@
   });
 </script>
 
-<title>Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
-<meta name="description" content="Perl Newbies is the site for people to leran Perl programing. Perl is good at text processing,Linux server administration, and Web development. You can use Perl on most operation systems. Perl backword compatiblity is very high.">
+<title>unlink function - Delete a file - Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</title>
+<meta name="description" content="unlink function removes a file. The return value is the count of deleted files.">
   </head>
   <body>
     <div class="container">
@@ -47,47 +47,60 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/">Perl Newbies - Perl is good at Text processing, Linux server admin, Web development</a></h2>
+    <ol class="bread" itemscope itemtype="http://schema.org/BreadcrumbList">
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/">
+        <span itemprop="name">Perl</span></a>
+    <meta itemprop="position" content="1" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    <a itemprop="item" href="/blog/20161004147558.html">
+      <span itemprop="name">Functions</span></a>
+    <meta itemprop="position" content="2" />
+  </li>
+  &#8250;
+  <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+    here
+  </li>
+</ol>
+<h2><a href="/blog/20080520121125.html">unlink function - Delete a file</a></h2>
 <p>
-  Perl Newbies is the site for people to leran Perl programing. Perl is good at <b>text processing</b>,<b>Linux server administration</b>, and <b>Web development</b>. You can use Perl on most operation systems. Perl backword compatiblity is very high.
+  <strong>unlink</strong> function removes a file. The return value is the count of deleted files.
 </p>
+<pre>
+unlink $file;
+</pre>
+<h3>unlink function programming example</h3>
 <p>
-  Perl Newbie chears people who try to learn Perl and use Perl for your development. Let't talk about Perl. "He uses Perl and has much fun."
+  The following is a unlink function programming example.
 </p>
-<h3>Functions</h3>
+<pre>
+use strict;
+use warnings;
+use Fcntl;
+
+# Delete a file
+
+# Create a preparation file.
+my $file = "sample_20080520_$$.txt";
+
+sysopen(my $fh, $file, O_CREAT | O_WRONLY | O_EXCL)
+  or die "Can't create $file : $!";
+close( $fh );
+print "Preparation: Created '$file'\n\n";
+
+print "1: Delete a file\n";
+if (unlink $file) {
+  print "Deleted '$file'\n";
+}
+else {
+  print "'Can't delete $file'\n";
+}
+</pre>
 <p>
-  Perl core functions.
+  (See also)<a href="/blog/20080804121794.html">sysopen function</a>、<a href="/blog/20180310152509.html">Fcntl</a>
 </p>
-<h4>String functions</h4>
-<ul>
-  <li><a href="/blog/20100326127089.html">lc</a></li>
-  <li><a href="/blog/20100327127089.html">lcfirst</a></li>
-  <li><a href="/blog/20080903122057.html">uc</a>
-  <li><a href="/blog/20100325127089.html">ucfirst</a></li>
-  <li><a href="/blog/20080224120386.html">substr</a></li>
-  <li><a href="/blog/20080225120395.html">index</a></li>
-  <li><a href="/blog/20100321126967.html">rindex</a></li>
-  <li><a href="/blog/20080926122245.html">length</a></li>
-</ul>
-<h4>File and directory manipulation functions</h4>
-<ul>
-  <li><a href="/blog/20080520121125.html">unlink</a></li>
-</ul>
-<h4>Mathematical functions</h4>
-<ul>
-  <li><a href="/blog/20180514122166.html">sin</a></li>
-  <li><a href="/blog/20180513122166.html">cos</a></li>
-</ul>
-<h3>Modules</h3>
-<p>
-  Perl modules.
-</p>
-<ul>
-  <li><a href="/blog/20130912137895.html">strict</a></li>
-  <li><a href="/blog/20130916137930.html">warnings</a></li>
-  <li><a href="/blog/20100524127696.html">FindBin</a></li>
-  <li><a href="/blog/20100225126425.html">File::Basename</a></li>
-</ul>
 
   </div>
   <div class="bottom">
