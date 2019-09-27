@@ -49,6 +49,7 @@
     width:20%;
     text-align:center;
     padding-top:13px;
+    text-:right;
   }
   
   .menu {
@@ -289,7 +290,7 @@
     font-family: "times new roman", "geogia", serif;
 
     float:left;
-    width:33%;
+    width:80%;
     display:inline-block;
     padding:10px;
   }
